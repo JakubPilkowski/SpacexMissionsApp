@@ -1,10 +1,13 @@
 import Missions from "./Missions/Missions";
+import { Wrapper } from "./MissionsLayout.css";
 
 const MissionsLayout = () => (
-  <div style={{ minHeight: "100vh" }}>
-    <h1>Zbiór najważniejszych misji kosmicznych</h1>
+  <Wrapper>
+    <h1 style={{ color: "white", margin: "75px" }}>
+      Zbiór najważniejszych misji kosmicznych
+    </h1>
     <Missions></Missions>
-  </div>
+  </Wrapper>
 );
 
 export default MissionsLayout;

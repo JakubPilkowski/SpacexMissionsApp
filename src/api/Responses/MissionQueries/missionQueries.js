@@ -5,7 +5,7 @@ export const GET_LAUNCHES = gql`
     launches(offset: $offset, limit: $limit) {
       name: mission_name
       links {
-        image: mission_patch
+        image: mission_patch_small
       }
       details
       id

@@ -19,7 +19,7 @@ const Missions = () => {
   if (error) return <div>Error</div>;
 
   let content = data.launches.map((launch, index) => (
-    <Mission key={launch.id} {...launch} />
+    <Mission key={launch.id} {...launch} click={() => {}} />
   ));
   return (
     <InfiniteScroll
