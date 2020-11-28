@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navigation } from "./components";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { MissionsLayout, FavouritesLayout } from "./containers";
+import Layout from "./hoc/Layout/Layout";
 
 const theme = createMuiTheme({
   palette: {
@@ -15,18 +16,12 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <Navigation></Navigation>
-
-        <section style={{ paddingTop: "72px" }}>
-          <Switch>
-            <Route path="/" exact component={MissionsLayout}></Route>
-            <Route path="/favourites" component={FavouritesLayout}></Route>
-          </Switch>
-        </section>
-        {/* tmp footer */}
-        <div></div>
-      </Router>
+      <Layout>
+        <Switch>
+          <Route path="/" exact component={MissionsLayout}></Route>
+          <Route path="/favourites" component={FavouritesLayout}></Route>
+        </Switch>
+      </Layout>
     </ThemeProvider>
   );
 }
