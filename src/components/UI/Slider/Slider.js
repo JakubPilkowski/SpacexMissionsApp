@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Slide from "./Slide/Slide";
-import { SliderWrapper } from "./Slider.css";
+import {
+  SliderDot,
+  SliderWrapper,
+  SliderBottomView,
+  SliderButton,
+} from "./Slider.css";
 
 const Slider = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -16,10 +21,24 @@ const Slider = (props) => {
     setActiveIndex(index);
   };
 
+  const goToSlide = (id) => {
+    console.log("dot click");
+    setActiveIndex(id);
+  };
+  let content = [];
+
+  for (let i = 0; i < props.length; i++) {
+    content.push(
+      <SliderDot
+        className={activeIndex === i ? "active" : "inactive"}
+        onClick={() => goToSlide(i)}
+      />
+    );
+  }
+
   return (
     <SliderWrapper>
       <div className="slider-items">
-        <button onClick={goToPrevSlide}>Prev</button>
         <div className="slider-text">
           {props.children.map((child, index) => (
             <Slide key={index} activeIndex={activeIndex} index={index}>
@@ -27,7 +46,15 @@ const Slider = (props) => {
             </Slide>
           ))}
         </div>
-        <button onClick={goToNextSlide}>Next</button>
+        <SliderBottomView>
+          <SliderButton color="primary" onClick={goToPrevSlide}>
+            Prev
+          </SliderButton>
+          <div style={{ display: "flex" }}>{content}</div>
+          <SliderButton color="primary" onClick={goToNextSlide}>
+            Next
+          </SliderButton>
+        </SliderBottomView>
       </div>
     </SliderWrapper>
   );

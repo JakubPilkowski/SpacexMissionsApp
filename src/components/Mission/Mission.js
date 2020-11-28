@@ -31,7 +31,6 @@ const Mission = ({ id, name, details, links: { image }, click }) => {
   return (
     <Wrapper>
       <Dialog maxWidth={"lg"} open={isOpen} onClose={onMissionCloseHandler}>
-        <MuiDialogTitle>Szczegóły misji</MuiDialogTitle>
         <MuiDialogContent>
           <Details id={id} />
         </MuiDialogContent>
