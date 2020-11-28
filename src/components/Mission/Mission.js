@@ -1,13 +1,25 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Details from "../Details";
 import { Wrapper } from "containers/MissionsLayout/MissionsLayout.css";
 import { MissionCard, MissionCardHeader } from "./Mission.css";
+import Dialog from "@material-ui/core/Dialog";
+import MuiDialogTitle from "@material-ui/core/DialogTitle";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDialogActions from "@material-ui/core/DialogActions";
 
 const Mission = ({ id, name, details, links: { image }, click }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onMissionClickHandler = () => {
+    setIsOpen(true);
+  };
+  const onMissionCloseHandler = () => {
+    setIsOpen(false);
+  };
+
   let detailsView;
   if (details) {
     detailsView =
@@ -18,19 +30,27 @@ const Mission = ({ id, name, details, links: { image }, click }) => {
 
   return (
     <Wrapper>
+      <Dialog maxWidth={"lg"} open={isOpen} onClose={onMissionCloseHandler}>
+        <MuiDialogTitle>Szczegóły misji</MuiDialogTitle>
+        <MuiDialogContent>
+          <Details id={id} />
+        </MuiDialogContent>
+      </Dialog>
+
       <MissionCard
         style={{
           backgroundColor: "#826B57",
           color: "white",
           boxShadow: "0px 0px 3px 3px rgba(255, 140, 0, 1)",
         }}
-        onClick={click(id)}
+        onClick={onMissionClickHandler}
       >
         <CardActionArea>
           <CardContent>
             <MissionCardHeader>
               <div>
                 <h1>{name}</h1>
+                <h2>{id}</h2>
                 <h2>Details</h2>
               </div>
               <img src={image} height="100" />

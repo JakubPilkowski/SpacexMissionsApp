@@ -1,12 +1,15 @@
-import { useState } from "react";
-import { Mission } from "../../../components";
+import { Fragment, useState } from "react";
+import { Mission, Details } from "../../../components";
 import { GET_LAUNCHES } from "../../../api/Responses/MissionQueries/missionQueries";
 import { useQuery } from "@apollo/client";
 import InfiniteScroll from "react-infinite-scroller";
+import Dialog from "@material-ui/core/Dialog";
+import MuiDialogTitle from "@material-ui/core/DialogTitle";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDialogActions from "@material-ui/core/DialogActions";
 
 const Missions = () => {
   const [hasMore, setHasMore] = useState(true);
-
   const { loading, error, data, fetchMore } = useQuery(GET_LAUNCHES, {
     variables: {
       offset: 0,
@@ -19,7 +22,7 @@ const Missions = () => {
   if (error) return <div>Error</div>;
 
   let content = data.launches.map((launch, index) => (
-    <Mission key={launch.id} {...launch} click={() => {}} />
+    <Mission key={launch.id} {...launch} />
   ));
   return (
     <InfiniteScroll
