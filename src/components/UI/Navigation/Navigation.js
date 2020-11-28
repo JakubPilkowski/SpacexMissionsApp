@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom";
-import { Wrapper } from "./Navigation.css";
+import { Brand, BrandLogo, BrandName, Wrapper } from "./Navigation.css";
+import rocket from "../../../assets/rocket.svg";
+import NavigationItems from "./NavigationItems/NavigationItems";
 
 const Navigation = (props) => (
   <Wrapper>
-    <div>Logo</div>
-    <div>
-      <Link to="/">Misje</Link>
-      <Link to="/favourites">Ulubione</Link>
-    </div>
+    <Brand to="/">
+      <BrandLogo src={rocket} />
+      <BrandName>SpaceX Missions</BrandName>
+    </Brand>
+    <NavigationItems />
   </Wrapper>
 );
 
