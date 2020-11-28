@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  z-index: 100;
   width: 100%;
   display: flex;
   margin: auto;
