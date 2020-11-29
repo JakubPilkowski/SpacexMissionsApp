@@ -4,13 +4,23 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Details from "../Details";
 import { Wrapper } from "containers/MissionsLayout/MissionsLayout.css";
-import { MissionCard, MissionCardHeader } from "./Mission.css";
+import { MissionCard } from "./Mission.css";
 import Dialog from "@material-ui/core/Dialog";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
+import { FlexContainer, FlexWrapperRowBetween } from "utils/Wrappers.css";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { CardActions } from "@material-ui/core";
 
-const Mission = ({ id, name, details, links: { image }, click }) => {
+const Mission = ({
+  id,
+  name,
+  details,
+  image,
+  isFavourite,
+  mode = "default",
+  onRemove,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onMissionClickHandler = () => {
@@ -32,7 +42,11 @@ const Mission = ({ id, name, details, links: { image }, click }) => {
     <Wrapper>
       <Dialog maxWidth={"lg"} open={isOpen} onClose={onMissionCloseHandler}>
         <MuiDialogContent>
-          <Details id={id} />
+          <Details
+            id={id}
+            isFavourite={isFavourite}
+            onClose={onMissionCloseHandler}
+          />
         </MuiDialogContent>
       </Dialog>
 
@@ -42,20 +56,53 @@ const Mission = ({ id, name, details, links: { image }, click }) => {
           color: "white",
           boxShadow: "0px 0px 3px 3px rgba(255, 140, 0, 1)",
         }}
-        onClick={onMissionClickHandler}
       >
-        <CardActionArea>
-          <CardContent>
-            <MissionCardHeader>
+        <FlexContainer style={{ margin: 0, padding: 0 }}>
+          <CardActions>
+            <FlexWrapperRowBetween>
               <div>
-                <h1>{name}</h1>
-                <h4>Details</h4>
+                {mode === "default" && isFavourite ? (
+                  <h4
+                    style={{
+                      margin: 0,
+                      display: "inline",
+                      borderRadius: "6px",
+                      backgroundColor: "#ff8c00",
+                      padding: "6px",
+                    }}
+                  >
+                    In Favourites
+                  </h4>
+                ) : (
+                  <h4></h4>
+                )}
               </div>
-              <img src={image} height="100" />
-            </MissionCardHeader>
-            <Typography>{detailsView}</Typography>
-          </CardContent>
-        </CardActionArea>
+              <div>
+                {mode === "favourites" ? (
+                  <IconButton
+                    aria-label="delete"
+                    color="primary"
+                    onClick={onRemove}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                ) : null}
+              </div>
+            </FlexWrapperRowBetween>
+          </CardActions>
+          <CardActionArea onClick={onMissionClickHandler}>
+            <CardContent>
+              <FlexWrapperRowBetween>
+                <div>
+                  <h1>{name}</h1>
+                  <h4>Details</h4>
+                </div>
+                <img src={image} height="100" />
+              </FlexWrapperRowBetween>
+              <Typography>{detailsView}</Typography>
+            </CardContent>
+          </CardActionArea>
+        </FlexContainer>
       </MissionCard>
     </Wrapper>
   );

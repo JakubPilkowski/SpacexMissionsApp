@@ -4,8 +4,7 @@ import { GET_LAUNCHES } from "../../../api/Responses/MissionQueries/missionQueri
 import { useQuery } from "@apollo/client";
 import InfiniteScroll from "react-infinite-scroller";
 
-
-const Missions = () => {
+const Missions = ({ favourites }) => {
   const [hasMore, setHasMore] = useState(true);
   const { loading, error, data, fetchMore } = useQuery(GET_LAUNCHES, {
     variables: {
@@ -19,7 +18,16 @@ const Missions = () => {
   if (error) return <div>Error</div>;
 
   let content = data.launches.map((launch, index) => (
-    <Mission key={launch.id} {...launch} />
+    <Mission
+      key={launch.id}
+      {...launch}
+      image={launch.links.image}
+      isFavourite={
+        favourites.find((favourite) => favourite.id === launch.id)
+          ? true
+          : false
+      }
+    />
   ));
   return (
     <InfiniteScroll
