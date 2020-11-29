@@ -3,6 +3,9 @@ import { Mission, Details } from "../../../components";
 import { GET_LAUNCHES } from "../../../api/Responses/MissionQueries/missionQueries";
 import { useQuery } from "@apollo/client";
 import InfiniteScroll from "react-infinite-scroller";
+import { FlexWrapperRowCenter } from "utils/Wrappers.css";
+import BeanEaterLoading from "components/UI/LoadingIndicators/BeanEaterLoading/BeanEaterLoading";
+import DotLoading from "components/UI/LoadingIndicators/DotLoading/DotLoading";
 
 const Missions = ({ favourites }) => {
   const [hasMore, setHasMore] = useState(true);
@@ -13,7 +16,12 @@ const Missions = ({ favourites }) => {
     },
   });
 
-  if (loading) return <div>Ładowanie</div>;
+  if (loading)
+    return (
+      <FlexWrapperRowCenter>
+        <BeanEaterLoading />
+      </FlexWrapperRowCenter>
+    );
 
   if (error) return <div>Error</div>;
 
@@ -45,7 +53,11 @@ const Missions = ({ favourites }) => {
       }}
       threshold={50}
       hasMore={hasMore}
-      loader={<p>Loading...</p>}
+      loader={
+        <FlexWrapperRowCenter>
+          <DotLoading />
+        </FlexWrapperRowCenter>
+      }
     >
       {content}
       {!hasMore ? <p>Nie ma więcej wyników</p> : null}
