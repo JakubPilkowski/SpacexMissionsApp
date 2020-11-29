@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import DotLoading from "components/UI/LoadingIndicators/DotLoading/DotLoading";
 import { FlexWrapperRowCenter } from "utils/Wrappers.css";
 import { CenteredH2 } from "utils/Texts.css";
+import Error from "../UI/Error/Error";
 
 const Details = ({ id, isFavourite, addFavourite, onClose }) => {
   const { error, loading, data } = useQuery(GET_LAUNCH_DETAILS, {
@@ -39,6 +40,7 @@ const Details = ({ id, isFavourite, addFavourite, onClose }) => {
       </FlexWrapperRowCenter>
     );
 
+  if (error) return <Error response={error.networkError.response} />;
   if (!error && !loading) {
     const launch = data.launch;
 

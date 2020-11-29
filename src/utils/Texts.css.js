@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Title = styled.h1`
   text-align: center;
   color: white;
-  margin: "75px";
+  margin: 75px;
 `;
 
 export const CenteredH1 = styled.h1`
@@ -12,6 +12,14 @@ export const CenteredH1 = styled.h1`
 
 export const CenteredH2 = styled.h2`
   text-align: center;
+`;
+
+export const CenteredSpacingSmH1 = styled(CenteredH1)`
+  margin: 3px;
+`;
+
+export const CenteredSpacingSmH2 = styled(CenteredH2)`
+  margin: 3px;
 `;
 
 export const StyledA = styled.a`
