@@ -6,6 +6,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import { FlexWrapperRowCenter } from "utils/Wrappers.css";
 import BeanEaterLoading from "components/UI/LoadingIndicators/BeanEaterLoading/BeanEaterLoading";
 import DotLoading from "components/UI/LoadingIndicators/DotLoading/DotLoading";
+import Error from "components/UI/Error/Error";
 
 const Missions = ({ favourites }) => {
   const [hasMore, setHasMore] = useState(true);
@@ -23,8 +24,9 @@ const Missions = ({ favourites }) => {
       </FlexWrapperRowCenter>
     );
 
-  if (error) return <div>Error</div>;
-
+  if (error) {
+    return <Error response={error.networkError.response} />;
+  }
   let content = data.launches.map((launch, index) => (
     <Mission
       key={launch.id}

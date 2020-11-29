@@ -14,8 +14,6 @@ const Layout = (props) => {
         <Router>
           <Navigation></Navigation>
           <ContentWrapper>{props.children}</ContentWrapper>
-          {/* footer tmp */}
-          <div>Footer Tmp</div>
         </Router>
       </LayoutBackgroundImage>
     </LayoutWrapper>
