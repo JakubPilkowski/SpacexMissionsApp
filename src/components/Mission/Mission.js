@@ -6,11 +6,9 @@ import Details from "../Details";
 import { Wrapper } from "containers/MissionsLayout/MissionsLayout.css";
 import { MissionCard, MissionCardHeader } from "./Mission.css";
 import Dialog from "@material-ui/core/Dialog";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
 
-const Mission = ({ id, name, details, links: { image }, click }) => {
+const Mission = ({ id, name, details, image, isFavourite }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onMissionClickHandler = () => {
@@ -32,7 +30,11 @@ const Mission = ({ id, name, details, links: { image }, click }) => {
     <Wrapper>
       <Dialog maxWidth={"lg"} open={isOpen} onClose={onMissionCloseHandler}>
         <MuiDialogContent>
-          <Details id={id} />
+          <Details
+            id={id}
+            isFavourite={isFavourite}
+            onClose={onMissionCloseHandler}
+          />
         </MuiDialogContent>
       </Dialog>
 
@@ -50,6 +52,11 @@ const Mission = ({ id, name, details, links: { image }, click }) => {
               <div>
                 <h1>{name}</h1>
                 <h4>Details</h4>
+                {isFavourite ? (
+                  <h5>Dodano już do ulubionych!!!</h5>
+                ) : (
+                  <h5>Nie</h5>
+                )}
               </div>
               <img src={image} height="100" />
             </MissionCardHeader>

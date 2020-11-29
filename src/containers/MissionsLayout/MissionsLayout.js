@@ -1,11 +1,14 @@
 import Missions from "./Missions/Missions";
 import { Wrapper } from "./MissionsLayout.css";
+import { connect } from "react-redux";
 
-const MissionsLayout = () => (
+const MissionsLayout = ({ favourites }) => (
   <Wrapper>
     <h1 style={{ color: "white", margin: "75px" }}>Missions List</h1>
-    <Missions></Missions>
+    <Missions favourites={favourites}></Missions>
   </Wrapper>
 );
 
-export default MissionsLayout;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps)(MissionsLayout);

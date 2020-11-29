@@ -11,7 +11,7 @@ const AddToFavourites = ({ click }) => {
           variant="outlined"
           color="primary"
           style={{ marginBottom: "24px" }}
-          onClick={() => {}}
+          onClick={click}
         >
           Add to favourites
         </SliderButton>

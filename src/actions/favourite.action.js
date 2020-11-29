@@ -4,7 +4,7 @@ export const addFavourite = (favourite) => ({
   type: "ADD_FAVOURITE",
   id: favourite.id,
   name: favourite.name,
-  desc: favourite.desc,
+  details: favourite.details,
   image: favourite.image,
 });
 
