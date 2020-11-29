@@ -8,17 +8,15 @@ import { Mission } from "components";
 const FavouritesLayout = ({ favourites, removeFavourite }) => (
   <Fragment>
     <CenteredH1>List of favourites</CenteredH1>
-    {favourites.map((favourite) => {
-      console.log(favourite);
-      return (
-        <Fragment>
-          <Mission key={favourite.id} {...favourite} isFavourite />
-          <div style={{ backgroundColor: "red" }}>
-            <Button onClick={() => removeFavourite(favourite.id)}>Usuń</Button>
-          </div>
-        </Fragment>
-      );
-    })}
+    {favourites.map((favourite) => (
+      <Mission
+        key={favourite.id}
+        {...favourite}
+        isFavourite
+        mode="favourites"
+        onRemove={() => removeFavourite(favourite.id)}
+      />
+    ))}
   </Fragment>
 );
 

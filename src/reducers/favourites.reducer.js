@@ -6,7 +6,7 @@ const favourites = (state = [], action) => {
         {
           id: action.id,
           name: action.name,
-          desc: action.desc,
+          details: action.details,
           image: action.image,
         },
       ];

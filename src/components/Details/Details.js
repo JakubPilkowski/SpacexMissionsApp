@@ -11,8 +11,6 @@ import { addFavourite } from "../../actions/favourite.action";
 import { connect } from "react-redux";
 
 const Details = ({ id, isFavourite, addFavourite, onClose }) => {
-  console.log(id);
-
   const { error, loading, data } = useQuery(GET_LAUNCH_DETAILS, {
     variables: {
       id,
@@ -20,13 +18,12 @@ const Details = ({ id, isFavourite, addFavourite, onClose }) => {
   });
   let content;
 
-  const addToFavourites = () => {
-    console.log(data.launch);
+  const addToFavourites = (launch) => {
     const favourite = {
       id,
-      name: data.launch.name,
-      details: data.launch.details,
-      image: data.launch.links.image,
+      name: launch.name,
+      details: launch.details,
+      image: launch.links.image,
     };
     addFavourite(favourite);
     onClose();
@@ -49,7 +46,7 @@ const Details = ({ id, isFavourite, addFavourite, onClose }) => {
           </SliderItem>
           {!isFavourite ? (
             <SliderItem>
-              <AddToFavourites click={addToFavourites} />
+              <AddToFavourites click={() => addToFavourites(launch)} />
             </SliderItem>
           ) : null}
         </Slider>
