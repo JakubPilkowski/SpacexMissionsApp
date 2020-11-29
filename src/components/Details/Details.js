@@ -9,6 +9,9 @@ import AdditionalInfo from "./AdditionalInfo/AdditionalInfo";
 import AddToFavourites from "./AddToFavourites/AddToFavourites";
 import { addFavourite } from "../../actions/favourite.action";
 import { connect } from "react-redux";
+import DotLoading from "components/UI/LoadingIndicators/DotLoading/DotLoading";
+import { FlexWrapperRowCenter } from "utils/Wrappers.css";
+import { CenteredH2 } from "utils/Texts.css";
 
 const Details = ({ id, isFavourite, addFavourite, onClose }) => {
   const { error, loading, data } = useQuery(GET_LAUNCH_DETAILS, {
@@ -28,6 +31,13 @@ const Details = ({ id, isFavourite, addFavourite, onClose }) => {
     addFavourite(favourite);
     onClose();
   };
+  if (loading)
+    return (
+      <FlexWrapperRowCenter>
+        <DotLoading />
+        <CenteredH2>Loading...</CenteredH2>
+      </FlexWrapperRowCenter>
+    );
 
   if (!error && !loading) {
     const launch = data.launch;

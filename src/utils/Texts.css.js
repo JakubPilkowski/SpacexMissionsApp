@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Title = styled.h1`
+  text-align: center;
+  color: white;
+  margin: "75px";
+`;
+
 export const CenteredH1 = styled.h1`
   text-align: center;
 `;

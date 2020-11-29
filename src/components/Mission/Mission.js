@@ -11,6 +11,7 @@ import { FlexContainer, FlexWrapperRowBetween } from "utils/Wrappers.css";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { CardActions } from "@material-ui/core";
+import Snackbar from "@material-ui/core/Snackbar";
 
 const Mission = ({
   id,
@@ -21,13 +22,30 @@ const Mission = ({
   mode = "default",
   onRemove,
 }) => {
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const onMissionClickHandler = () => {
     setIsOpen(true);
   };
-  const onMissionCloseHandler = () => {
+  const onMissionCloseHandler = (type) => {
+    if (type === "added") {
+      setSnackbarMessage(`Dodano ${name} do ulubionych misji!!!`);
+      setSnackbarOpen(true);
+    }
     setIsOpen(false);
+  };
+
+  const onRemoveFromFavourites = () => {
+    console.log("halo");
+    setSnackbarMessage(`Usunięto ${name} z ulubionych misji!!!`);
+    setSnackbarOpen(true);
+    onRemove(id);
+  };
+
+  const onSnackbarClose = (event, reason) => {
+    setSnackbarOpen(false);
   };
 
   let detailsView;
@@ -40,15 +58,27 @@ const Mission = ({
 
   return (
     <Wrapper>
-      <Dialog maxWidth={"lg"} open={isOpen} onClose={onMissionCloseHandler}>
+      <Dialog
+        maxWidth={"lg"}
+        open={isOpen}
+        onClose={() => onMissionCloseHandler("default")}
+      >
         <MuiDialogContent>
           <Details
             id={id}
             isFavourite={isFavourite}
-            onClose={onMissionCloseHandler}
+            onClose={() => onMissionCloseHandler("added")}
           />
         </MuiDialogContent>
       </Dialog>
+
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={4000}
+        onClose={onSnackbarClose}
+        message={snackbarMessage}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      />
 
       <MissionCard
         style={{
@@ -57,7 +87,7 @@ const Mission = ({
           boxShadow: "0px 0px 3px 3px rgba(255, 140, 0, 1)",
         }}
       >
-        <FlexContainer style={{ margin: 0, padding: 0 }}>
+        <FlexContainer style={{}}>
           <CardActions>
             <FlexWrapperRowBetween>
               <div>
@@ -82,7 +112,7 @@ const Mission = ({
                   <IconButton
                     aria-label="delete"
                     color="primary"
-                    onClick={onRemove}
+                    onClick={onRemoveFromFavourites}
                   >
                     <DeleteIcon />
                   </IconButton>

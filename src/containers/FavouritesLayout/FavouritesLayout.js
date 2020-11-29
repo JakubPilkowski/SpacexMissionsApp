@@ -1,13 +1,13 @@
 import { Fragment } from "react";
 import { connect } from "react-redux";
 import { removeFavourite } from "../../actions/favourite.action";
-import { CenteredH1 } from "../../utils/Texts.css";
+import { Title } from "../../utils/Texts.css";
 import Button from "@material-ui/core/Button";
 import { Mission } from "components";
 
 const FavouritesLayout = ({ favourites, removeFavourite }) => (
   <Fragment>
-    <CenteredH1>List of favourites</CenteredH1>
+    <Title>List of favourites</Title>
     {favourites.map((favourite) => (
       <Mission
         key={favourite.id}
