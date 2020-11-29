@@ -49,8 +49,7 @@ const Mission = ({ id, name, details, links: { image }, click }) => {
             <MissionCardHeader>
               <div>
                 <h1>{name}</h1>
-                <h2>{id}</h2>
-                <h2>Details</h2>
+                <h4>Details</h4>
               </div>
               <img src={image} height="100" />
             </MissionCardHeader>

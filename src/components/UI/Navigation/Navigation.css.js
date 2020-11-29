@@ -28,7 +28,7 @@ export const BrandLogo = styled.img`
   width: 40px;
 `;
 
-export const BrandName = styled.a`
+export const BrandName = styled.p`
   margin-left: 18px;
   color: white;
   font-size: 1.7rem;

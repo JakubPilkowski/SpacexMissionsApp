@@ -22,6 +22,8 @@ export const GET_LAUNCH_DETAILS = gql`
         image: mission_patch_small
         presskit
         video: video_link
+        reddit: reddit_launch
+        launch_images: flickr_images
       }
       rocket {
         details: rocket {

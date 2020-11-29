@@ -8,6 +8,7 @@ export const SliderWrapper = styled.div`
 `;
 
 export const SliderBottomView = styled.div`
+  margin-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;

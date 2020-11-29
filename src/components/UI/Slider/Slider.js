@@ -30,6 +30,7 @@ const Slider = (props) => {
   for (let i = 0; i < props.length; i++) {
     content.push(
       <SliderDot
+        key={i}
         className={activeIndex === i ? "active" : "inactive"}
         onClick={() => goToSlide(i)}
       />
@@ -38,24 +39,20 @@ const Slider = (props) => {
 
   return (
     <SliderWrapper>
-      <div className="slider-items">
-        <div className="slider-text">
-          {props.children.map((child, index) => (
-            <Slide key={index} activeIndex={activeIndex} index={index}>
-              {child}
-            </Slide>
-          ))}
-        </div>
-        <SliderBottomView>
-          <SliderButton color="primary" onClick={goToPrevSlide}>
-            Prev
-          </SliderButton>
-          <div style={{ display: "flex" }}>{content}</div>
-          <SliderButton color="primary" onClick={goToNextSlide}>
-            Next
-          </SliderButton>
-        </SliderBottomView>
-      </div>
+      {props.children.map((child, index) => (
+        <Slide key={index} activeIndex={activeIndex} index={index}>
+          {child}
+        </Slide>
+      ))}
+      <SliderBottomView>
+        <SliderButton color="primary" onClick={goToPrevSlide}>
+          Prev
+        </SliderButton>
+        <div style={{ display: "flex" }}>{content}</div>
+        <SliderButton color="primary" onClick={goToNextSlide}>
+          Next
+        </SliderButton>
+      </SliderBottomView>
     </SliderWrapper>
   );
 };
