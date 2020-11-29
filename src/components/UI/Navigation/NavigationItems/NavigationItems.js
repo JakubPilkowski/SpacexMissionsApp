@@ -3,8 +3,8 @@ import { ItemsWrapper } from "./NavigationItems.css";
 
 const NavigationItems = () => (
   <ItemsWrapper>
-    <NavigationItem link="/">Misje</NavigationItem>
-    <NavigationItem link="/favourites">Ulubione</NavigationItem>
+    <NavigationItem link="/">Missions</NavigationItem>
+    <NavigationItem link="/favourites">Favourites</NavigationItem>
   </ItemsWrapper>
 );
 

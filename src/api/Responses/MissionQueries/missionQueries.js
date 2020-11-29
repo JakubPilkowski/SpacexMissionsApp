@@ -20,6 +20,10 @@ export const GET_LAUNCH_DETAILS = gql`
         article: article_link
         wikipedia
         image: mission_patch_small
+        presskit
+        video: video_link
+        reddit: reddit_launch
+        launch_images: flickr_images
       }
       rocket {
         details: rocket {
@@ -31,6 +35,7 @@ export const GET_LAUNCH_DETAILS = gql`
             kg
           }
           name
+          description
         }
       }
       launch_date_local
