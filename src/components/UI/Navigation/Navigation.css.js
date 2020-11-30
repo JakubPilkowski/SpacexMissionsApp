@@ -11,8 +11,9 @@ export const Wrapper = styled.div`
   position: fixed;
   height: 64px;
   color: white;
-  background-color: #020202;
-  box-shadow: 0px 3px 5px 2px rgba(255, 140, 0, 0.5);
+  background-color: rgba(53, 63, 98, ${(props) => props.opacity});
+  box-shadow: 0px 3px 5px 2px
+    rgba(255, 140, 0, ${(props) => 0.5 * props.opacity});
 `;
 
 export const Brand = styled(NavLink)`

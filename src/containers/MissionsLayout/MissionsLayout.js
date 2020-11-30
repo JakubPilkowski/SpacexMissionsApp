@@ -5,7 +5,6 @@ import { Title } from "utils/Texts.css";
 
 const MissionsLayout = ({ favourites }) => (
   <Wrapper>
-    <Title>Missions List</Title>
     <Missions favourites={favourites}></Missions>
   </Wrapper>
 );
