@@ -28,17 +28,17 @@ function App({ favourites, addFavourite, removeFavourite }) {
         >
           <Switch>
             <Route
-              path="/"
+              path="/SpacexMissionsApp/"
               exact
               component={() => <Missions favourites={favourites} />}
             ></Route>
             <Route
-              path="/favourites"
+              path="/SpacexMissionsApp/favourites"
               component={() => <Favourites favourites={favourites} />}
             ></Route>
-            <Route path="/pagenotfound" component={PageNotFound}></Route>
-            <Route path="/" component={PageNotFound}>
-              <Redirect to="/pagenotfound" />
+            <Route path="/" component={PageNotFound}></Route>
+            <Route path="/SpacexMissionsApp/" component={PageNotFound}>
+              <Redirect to="/SpacexMissionsApp/pagenotfound" />
             </Route>
           </Switch>
         </FavouritesContext.Provider>
