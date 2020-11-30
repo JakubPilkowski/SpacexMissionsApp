@@ -4,7 +4,7 @@ import NavigationItems from "./NavigationItems/NavigationItems";
 
 const Navigation = (props) => (
   <Wrapper>
-    <Brand to="/">
+    <Brand to="/SpacexMissionsApp/">
       <BrandLogo src={rocket} />
       <BrandName>SpaceX Missions</BrandName>
     </Brand>

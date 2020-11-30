@@ -3,8 +3,10 @@ import { ItemsWrapper } from "./NavigationItems.css";
 
 const NavigationItems = () => (
   <ItemsWrapper>
-    <NavigationItem link="/">Missions</NavigationItem>
-    <NavigationItem link="/favourites">Favourites</NavigationItem>
+    <NavigationItem link="/SpacexMissionsApp/">Missions</NavigationItem>
+    <NavigationItem link="/SpacexMissionsApp/favourites">
+      Favourites
+    </NavigationItem>
   </ItemsWrapper>
 );
 
