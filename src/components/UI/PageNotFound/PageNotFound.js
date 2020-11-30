@@ -12,7 +12,7 @@ const PageNotFound = () => (
         color="primary"
         variant="contained"
         style={{ textTransform: "none", fontSize: "1rem" }}
-        href="/"
+        href="/SpacexMissionsApp/"
       >
         Back to main page
       </Button>
