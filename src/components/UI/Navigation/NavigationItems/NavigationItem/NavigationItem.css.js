@@ -21,7 +21,7 @@ export const Item = styled(NavLink)`
   &:hover,
   &:active,
   &.active {
-    background-color: rgba(255, 140, 0, 0.85);
+    background-color: rgba(255, 140, 0, 1);
     transition: 750ms ease-out;
   }
 `;

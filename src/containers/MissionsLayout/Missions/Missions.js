@@ -7,6 +7,7 @@ import { FlexWrapperRowCenter } from "utils/Wrappers.css";
 import BeanEaterLoading from "components/UI/LoadingIndicators/BeanEaterLoading/BeanEaterLoading";
 import DotLoading from "components/UI/LoadingIndicators/DotLoading/DotLoading";
 import Error from "components/UI/Error/Error";
+import { Title } from "utils/Texts.css";
 
 const Missions = ({ favourites }) => {
   const [hasMore, setHasMore] = useState(true);
@@ -40,30 +41,33 @@ const Missions = ({ favourites }) => {
     />
   ));
   return (
-    <InfiniteScroll
-      pageStart={0}
-      loadMore={() => {
-        return fetchMore({
-          variables: {
-            offset: data.launches.length,
-          },
-        }).then(({ data: { launches } }) => {
-          if (launches.length === 0) {
-            setHasMore(false);
-          }
-        });
-      }}
-      threshold={50}
-      hasMore={hasMore}
-      loader={
-        <FlexWrapperRowCenter>
-          <DotLoading />
-        </FlexWrapperRowCenter>
-      }
-    >
-      {content}
-      {!hasMore ? <p>Nie ma więcej wyników</p> : null}
-    </InfiniteScroll>
+    <Fragment>
+      <Title>Missions List</Title>
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={() => {
+          return fetchMore({
+            variables: {
+              offset: data.launches.length,
+            },
+          }).then(({ data: { launches } }) => {
+            if (launches.length === 0) {
+              setHasMore(false);
+            }
+          });
+        }}
+        threshold={50}
+        hasMore={hasMore}
+        loader={
+          <FlexWrapperRowCenter>
+            <DotLoading />
+          </FlexWrapperRowCenter>
+        }
+      >
+        {content}
+        {!hasMore ? <p>Nie ma więcej wyników</p> : null}
+      </InfiniteScroll>
+    </Fragment>
   );
 };
 
