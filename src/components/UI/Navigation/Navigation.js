@@ -3,7 +3,7 @@ import rocket from "../../../assets/rocket.svg";
 import NavigationItems from "./NavigationItems/NavigationItems";
 
 const Navigation = (props) => (
-  <Wrapper opacity={props.opacity}>
+  <Wrapper>
     <Brand to="/">
       <BrandLogo src={rocket} />
       <BrandName>SpaceX Missions</BrandName>

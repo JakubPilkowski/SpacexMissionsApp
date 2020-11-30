@@ -11,9 +11,12 @@ export const Wrapper = styled.div`
   position: fixed;
   height: 64px;
   color: white;
-  background-color: rgba(53, 63, 98, ${(props) => props.opacity});
-  box-shadow: 0px 3px 5px 2px
-    rgba(255, 140, 0, ${(props) => 0.5 * props.opacity});
+  background-color: rgba(53, 63, 98, 1);
+  box-shadow: 0px 3px 5px 2px rgba(255, 140, 0, 0.5);
+
+  @media (max-width: 500px) {
+    height: 56px;
+  }
 `;
 
 export const Brand = styled(NavLink)`
@@ -22,11 +25,20 @@ export const Brand = styled(NavLink)`
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+
+  @media (max-width: 500px) {
+    // margin-left: 3px;
+  }
 `;
 
 export const BrandLogo = styled.img`
   height: 40px;
   width: 40px;
+
+  @media (max-width: 500px) {
+    height: 36px;
+    width: 36px;
+  }
 `;
 
 export const BrandName = styled.p`
@@ -36,4 +48,8 @@ export const BrandName = styled.p`
   text-shadow: 2px 2px 3px rgba(255, 140, 0, 0.75);
   font-style: italic;
   font-weight: bold;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;

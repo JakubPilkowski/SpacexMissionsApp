@@ -10,6 +10,11 @@ import {
 } from "../../../themes/Wrappers.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import {
+  LinkImage,
+  LinkImagesContainer,
+  PhotosWrapper,
+} from "./AdditionalInfo.css";
 
 const AdditionalInfo = ({
   links: { video, article, wikipedia, reddit, presskit, launch_images },
@@ -20,17 +25,17 @@ const AdditionalInfo = ({
       <FlexWrapperRowSpace>
         <FlexWrapperColumnCenter>
           <CenteredH2>Sources</CenteredH2>
-          <FlexContainer>
+          <LinkImagesContainer>
             <StyledA href={wikipedia} target="_blank" rel="noreferrer">
-              <img src={wikipediaIcon} height="50" width="50" alt="Wikipedia" />
+              <LinkImage src={wikipediaIcon} alt="Wikipedia" />
             </StyledA>
             <StyledA href={video} target="_blank" rel="noreferrer">
-              <img src={youtube} height="50" width="50" alt="Youtube" />
+              <LinkImage src={youtube} alt="Youtube" />
             </StyledA>
             <StyledA href={reddit} target="_blank" rel="noreferrer">
-              <img src={redditIcon} height="50" width="50" alt="Icon" />
+              <LinkImage src={redditIcon} alt="Icon" />
             </StyledA>
-          </FlexContainer>
+          </LinkImagesContainer>
           <h4 style={{ margin: "6px" }}>Other links</h4>
           <FlexContainer>
             <StyledA href={article} target="_blank" rel="noreferrer">
@@ -41,7 +46,7 @@ const AdditionalInfo = ({
             </StyledA>
           </FlexContainer>
         </FlexWrapperColumnCenter>
-        <FlexWrapperColumnCenter>
+        <PhotosWrapper>
           <CenteredH2>Photos</CenteredH2>
           <Carousel
             autoPlay
@@ -64,7 +69,7 @@ const AdditionalInfo = ({
               />
             ))}
           </Carousel>
-        </FlexWrapperColumnCenter>
+        </PhotosWrapper>
       </FlexWrapperRowSpace>
     </Fragment>
   );

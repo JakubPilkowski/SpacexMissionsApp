@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { CenteredH1 } from "themes/Texts.css";
 import {
+  FlexWrapperColumnCenter,
   FlexWrapperRowBetween,
   FlexWrapperRowCenter,
 } from "../../../themes/Wrappers.css";
@@ -10,6 +11,9 @@ import {
   RocketWeightContainer,
   RocketWeightImageContainer,
   RocketWeightImageDesc,
+  RocketInfoWrapper,
+  RocketStatisticsWrapper,
+  RocketInfoName,
 } from "./RocketInfo.css";
 import rocketHeight from "../../../assets/rocket_height.svg";
 import weight from "../../../assets/weight.svg";
@@ -25,30 +29,32 @@ const RocketInfo = ({
   return (
     <Fragment>
       <CenteredH1>Rocket info</CenteredH1>
-      <FlexWrapperRowBetween>
+      <RocketInfoWrapper>
         <RocketInfoContainer>
-          <h3>{name}</h3>
+          <RocketInfoName>{name}</RocketInfoName>
           <p>
             <strong>Description:</strong> {description}
           </p>
         </RocketInfoContainer>
-        <RocketHeightContainer>
-          <FlexWrapperRowCenter>
-            <h4>{meters}m</h4>
-            <img src={rocketHeight} height="100" alt="Rocket height" />
-          </FlexWrapperRowCenter>
-          <h4>Height</h4>
-        </RocketHeightContainer>
-        <RocketWeightContainer>
-          <RocketWeightImageContainer>
-            <img src={weight} height="100" alt="Rocket mass" />
-            <RocketWeightImageDesc>
-              {Math.round(kg / 100)}t
-            </RocketWeightImageDesc>
-          </RocketWeightImageContainer>
-          <h4>Mass</h4>
-        </RocketWeightContainer>
-      </FlexWrapperRowBetween>
+        <RocketStatisticsWrapper>
+          <FlexWrapperColumnCenter>
+            <FlexWrapperRowCenter>
+              <h4>{meters}m</h4>
+              <img src={rocketHeight} height="100" alt="Rocket height" />
+            </FlexWrapperRowCenter>
+            <h4>Height</h4>
+          </FlexWrapperColumnCenter>
+          <FlexWrapperColumnCenter>
+            <RocketWeightImageContainer>
+              <img src={weight} height="100" alt="Rocket mass" />
+              <RocketWeightImageDesc>
+                {Math.round(kg / 100)}t
+              </RocketWeightImageDesc>
+            </RocketWeightImageContainer>
+            <h4>Mass</h4>
+          </FlexWrapperColumnCenter>
+        </RocketStatisticsWrapper>
+      </RocketInfoWrapper>
     </Fragment>
   );
 };

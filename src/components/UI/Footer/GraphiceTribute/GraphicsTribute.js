@@ -22,6 +22,7 @@ const GraphicsTribute = () => {
                 www.flaticon.com
               </a>
             </div>
+            <br />
             <div>
               Icons made by
               <a
@@ -35,6 +36,7 @@ const GraphicsTribute = () => {
                 www.flaticon.com
               </a>
             </div>
+            <br />
             <div>
               Icons made by
               <a
@@ -48,6 +50,7 @@ const GraphicsTribute = () => {
                 www.flaticon.com
               </a>
             </div>
+            <br />
             <div>
               Icons made by
               <a
@@ -69,7 +72,9 @@ const GraphicsTribute = () => {
         style={{ color: "white", fontWeight: "bold", textTransform: "none" }}
         onClick={() => setIsOpen(true)}
       >
-        Authors Graphics From Flaticon
+        {window.width >= 500
+          ? "Authors Graphics From Flaticon"
+          : "Authors Graphics"}
       </Button>
     </Fragment>
   );

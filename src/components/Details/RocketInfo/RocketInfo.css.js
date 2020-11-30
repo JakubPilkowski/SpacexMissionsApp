@@ -1,16 +1,32 @@
 import styled from "styled-components";
-import { FlexWrapperColumnCenter } from "../../../themes/Wrappers.css";
+import {
+  FlexWrapperColumnCenter,
+  FlexWrapperRowBetween,
+  FlexWrapperRowCenter,
+  FlexWrapperRowSpace,
+} from "../../../themes/Wrappers.css";
+
+export const RocketInfoWrapper = styled(FlexWrapperRowBetween)`
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
+
+export const RocketStatisticsWrapper = styled(FlexWrapperRowSpace)`
+  flex: 1;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
 
 export const RocketInfoContainer = styled.div`
-  flex: 2;
-`;
-
-export const RocketHeightContainer = styled(FlexWrapperColumnCenter)`
-  flex: 1.5;
-`;
-
-export const RocketWeightContainer = styled(FlexWrapperColumnCenter)`
   flex: 1;
+`;
+
+export const RocketInfoName = styled.h3`
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 `;
 
 export const RocketWeightImageContainer = styled(FlexWrapperColumnCenter)`

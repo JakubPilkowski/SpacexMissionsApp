@@ -4,6 +4,10 @@ export const Title = styled.h1`
   text-align: center;
   color: white;
   margin: 75px;
+
+  @media (max-width: 500px) {
+    margin: 30px;
+  }
 `;
 
 export const CenteredH1 = styled.h1`
