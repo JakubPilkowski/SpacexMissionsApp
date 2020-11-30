@@ -2,9 +2,17 @@ import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 
 export const SliderWrapper = styled.div`
-  width: 600px;
-  max-width: 600px;
-  max-height: 450px;
+  // width: 35%;
+  // max-width: 35%;
+  // max-height: 50%;
+
+  width: 750px;
+
+  @media (max-width: 500px) {
+    // width: 90%;
+    // max-width: 90%;
+    width: unset;
+  }
 `;
 
 export const SliderBottomView = styled.div`
@@ -12,6 +20,9 @@ export const SliderBottomView = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 500px) {
+    justify-content: center;
+  }
 `;
 
 export const SliderDot = styled.div`

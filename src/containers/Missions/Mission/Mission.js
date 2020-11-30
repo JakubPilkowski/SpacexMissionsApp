@@ -2,7 +2,13 @@ import React, { useState, useContext } from "react";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import { MissionCard, MissionCardInFavourites } from "./Mission.css";
+import {
+  MissionCard,
+  MissionCardInFavourites,
+  MissionCardTitle,
+  MissionCardHeader,
+  MissionCardImage,
+} from "./Mission.css";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import {
@@ -92,10 +98,10 @@ const Mission = ({
           </FavouritesContext.Consumer>
           <CardActionArea onClick={onMissionClickHandler}>
             <CardContent>
-              <FlexWrapperRowBetween>
-                <h1>{name}</h1>
-                <img src={image} height="100" alt={`${name} mission`} />
-              </FlexWrapperRowBetween>
+              <MissionCardHeader>
+                <MissionCardTitle>{name}</MissionCardTitle>
+                <MissionCardImage src={image} alt={`${name} mission`} />
+              </MissionCardHeader>
               <Typography paragraph>{detailsView}</Typography>
             </CardContent>
           </CardActionArea>

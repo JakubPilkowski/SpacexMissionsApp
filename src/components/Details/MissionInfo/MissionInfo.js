@@ -1,10 +1,12 @@
 import { Fragment } from "react";
 import { CenteredH1 } from "themes/Texts.css";
 import {
-  FlexWrapperRowBetween,
-  FlexContainer,
-  FlexTextCenterContainer,
-} from "../../../themes/Wrappers.css";
+  DetailsContent,
+  MissionInfoWrapper,
+  TitleContent,
+  TitleImage,
+  TitleName,
+} from "./MissionInfo.css";
 
 const MissionInfo = ({
   launch: {
@@ -17,16 +19,16 @@ const MissionInfo = ({
   return (
     <Fragment>
       <CenteredH1>Mission details</CenteredH1>
-      <FlexWrapperRowBetween>
-        <FlexContainer>
+      <MissionInfoWrapper>
+        <DetailsContent>
           <p>{details ? details : "No Details"}</p>
           <p>Launch date: {launch_date_local.slice(0, 10)}</p>
-        </FlexContainer>
-        <FlexTextCenterContainer>
-          <img src={image} width="125" height="125" alt={`${name} mission`} />
-          <h4>{name}</h4>
-        </FlexTextCenterContainer>
-      </FlexWrapperRowBetween>
+        </DetailsContent>
+        <TitleContent>
+          <TitleImage src={image} alt={`${name} mission`} />
+          <TitleName>{name}</TitleName>
+        </TitleContent>
+      </MissionInfoWrapper>
     </Fragment>
   );
 };

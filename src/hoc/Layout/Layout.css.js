@@ -14,9 +14,16 @@ export const LayoutBackgroundImage = styled.div`
   background-position: center;
   background-attachment: fixed;
   background-repeat: round;
+
+  @media (max-width: 500px) {
+    background-size: 50%;
+  }
 `;
 
 export const ContentWrapper = styled.div`
   min-height: 100vh;
   padding-top: 80px;
+  @media (max-width: 500px) {
+    padding-top: 72px;
+  }
 `;

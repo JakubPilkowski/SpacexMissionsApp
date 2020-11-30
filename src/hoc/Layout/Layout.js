@@ -13,7 +13,9 @@ const Layout = (props) => {
 
   useEffect(() => {
     window.onscroll = () =>
-      window.scrollY >= 400 ? setOpacity(1) : setOpacity(0);
+      window.scrollY >= (window.width > 500 ? 400 : 200)
+        ? setOpacity(1)
+        : setOpacity(0);
   });
 
   return (

@@ -29,6 +29,11 @@ export const FlexWrapperColumnCenter = styled(FlexWrapperColumn)`
 export const FlexContainer = styled.div`
   margin: 6px;
   padding: 6px;
+
+  @media (max-width: 500px) {
+    margin: 2px;
+    padding: 2px;
+  }
 `;
 
 export const FlexTextCenterContainer = styled(FlexContainer)`
