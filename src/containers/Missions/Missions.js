@@ -1,16 +1,16 @@
 import { Fragment, useState } from "react";
-import { Mission, Details } from "../../../components";
-import { GET_LAUNCHES } from "../../../api/Responses/MissionQueries/missionQueries";
+import Mission from "./Mission";
+import { GET_LAUNCHES } from "../../api/Responses/MissionQueries/missionQueries";
 import { useQuery } from "@apollo/client";
 import InfiniteScroll from "react-infinite-scroller";
 import {
   FlexWrapperColumnCenter,
   FlexWrapperRowCenter,
-} from "utils/Wrappers.css";
+} from "themes/Wrappers.css";
 import BeanEaterLoading from "components/UI/LoadingIndicators/BeanEaterLoading/BeanEaterLoading";
 import DotLoading from "components/UI/LoadingIndicators/DotLoading/DotLoading";
 import Error from "components/UI/Error/Error";
-import { Title } from "utils/Texts.css";
+import { Title } from "themes/Texts.css";
 import EndListView from "components/EndListView/EndListView";
 
 const Missions = ({ favourites }) => {

@@ -1,26 +1,57 @@
 import "./App.css";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core/styles";
-import { MissionsLayout, FavouritesLayout } from "./containers";
+import { Favourites, Missions } from "./containers";
+import { removeFavourite, addFavourite } from "./actions/favourite.action";
 import Layout from "./hoc/Layout/Layout";
-import theme from "./utils/theme";
+import theme from "./themes/theme";
 import PageNotFound from "components/UI/PageNotFound/PageNotFound";
+import { connect } from "react-redux";
+import FavouritesContext from "./context/favourites-context";
 
-function App() {
+function App({ favourites, addFavourite, removeFavourite }) {
+  const addToFavourites = (favourite) => {
+    addFavourite(favourite);
+  };
+  const removeFromFavourites = (id) => {
+    removeFavourite(id);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Layout>
-        <Switch>
-          <Route path="/" exact component={MissionsLayout}></Route>
-          <Route path="/favourites" component={FavouritesLayout}></Route>
-          <Route path="/pagenotfound" component={PageNotFound}></Route>
-          <Route path="/" component={PageNotFound}>
-            <Redirect to="/pagenotfound" />
-          </Route>
-        </Switch>
+        <FavouritesContext.Provider
+          value={{
+            add: (favourite) => addToFavourites(favourite),
+            remove: (id) => removeFromFavourites(id),
+          }}
+        >
+          <Switch>
+            <Route
+              path="/"
+              exact
+              component={() => <Missions favourites={favourites} />}
+            ></Route>
+            <Route
+              path="/favourites"
+              component={() => <Favourites favourites={favourites} />}
+            ></Route>
+            <Route path="/pagenotfound" component={PageNotFound}></Route>
+            <Route path="/" component={PageNotFound}>
+              <Redirect to="/pagenotfound" />
+            </Route>
+          </Switch>
+        </FavouritesContext.Provider>
       </Layout>
     </ThemeProvider>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => state;
+
+const mapDispatchToProps = {
+  addFavourite,
+  removeFavourite,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

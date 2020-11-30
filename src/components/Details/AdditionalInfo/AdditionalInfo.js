@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { CenteredH1, CenteredH2, StyledA } from "utils/Texts.css";
+import { CenteredH1, CenteredH2, StyledA } from "themes/Texts.css";
 import youtube from "../../../assets/youtube.svg";
 import wikipediaIcon from "../../../assets/wikipedia.png";
 import redditIcon from "../../../assets/reddit-logo.svg";
@@ -7,8 +7,8 @@ import {
   FlexContainer,
   FlexWrapperRowSpace,
   FlexWrapperColumnCenter,
-} from "../../../utils/Wrappers.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+} from "../../../themes/Wrappers.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 const AdditionalInfo = ({
@@ -43,7 +43,6 @@ const AdditionalInfo = ({
         </FlexWrapperColumnCenter>
         <FlexWrapperColumnCenter>
           <CenteredH2>Photos</CenteredH2>
-
           <Carousel
             autoPlay
             infiniteLoop

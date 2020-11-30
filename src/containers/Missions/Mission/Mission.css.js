@@ -16,3 +16,10 @@ export const MissionCardHeader = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+
+export const MissionCardInFavourites = styled.h4`
+  margin: 0px;
+  border-radius: 6px;
+  background-color: ${(props) => (props.isFavourite ? "#ff8c00" : "red")};
+  padding: 6px;
+`;

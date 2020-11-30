@@ -5,6 +5,7 @@ export const addFavourite = (favourite) => ({
   details: favourite.details,
   image: favourite.image,
 });
+
 export const removeFavourite = (id) => ({
   type: "REMOVE_FAVOURITE",
   id,

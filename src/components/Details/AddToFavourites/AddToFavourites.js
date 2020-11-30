@@ -1,6 +1,6 @@
 import { SliderButton } from "components/UI/Slider/Slider.css";
 import { Fragment } from "react";
-import { FlexWrapperColumnCenter } from "../../../utils/Wrappers.css";
+import { FlexWrapperColumnCenter } from "../../../themes/Wrappers.css";
 
 const AddToFavourites = ({ click }) => {
   return (

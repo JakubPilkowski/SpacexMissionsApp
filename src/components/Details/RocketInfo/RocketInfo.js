@@ -1,10 +1,15 @@
 import { Fragment } from "react";
-import { CenteredH1 } from "utils/Texts.css";
-import { FlexWrapperRowBetween } from "../../../utils/Wrappers.css";
+import { CenteredH1 } from "themes/Texts.css";
+import {
+  FlexWrapperRowBetween,
+  FlexWrapperRowCenter,
+} from "../../../themes/Wrappers.css";
 import {
   RocketInfoContainer,
   RocketHeightContainer,
   RocketWeightContainer,
+  RocketWeightImageContainer,
+  RocketWeightImageDesc,
 } from "./RocketInfo.css";
 import rocketHeight from "../../../assets/rocket_height.svg";
 import weight from "../../../assets/weight.svg";
@@ -23,15 +28,25 @@ const RocketInfo = ({
       <FlexWrapperRowBetween>
         <RocketInfoContainer>
           <h3>{name}</h3>
-          <p>Description: {description}</p>
+          <p>
+            <strong>Description:</strong> {description}
+          </p>
         </RocketInfoContainer>
         <RocketHeightContainer>
-          <h3>{meters}m</h3>
-          <img src={rocketHeight} height="75" alt="Rocket height" />
+          <FlexWrapperRowCenter>
+            <h4>{meters}m</h4>
+            <img src={rocketHeight} height="100" alt="Rocket height" />
+          </FlexWrapperRowCenter>
+          <h4>Height</h4>
         </RocketHeightContainer>
         <RocketWeightContainer>
-          <img src={weight} height="50" alt="Rocket mass" />
-          <h4>{Math.round(kg / 100)}t</h4>
+          <RocketWeightImageContainer>
+            <img src={weight} height="100" alt="Rocket mass" />
+            <RocketWeightImageDesc>
+              {Math.round(kg / 100)}t
+            </RocketWeightImageDesc>
+          </RocketWeightImageContainer>
+          <h4>Mass</h4>
         </RocketWeightContainer>
       </FlexWrapperRowBetween>
     </Fragment>

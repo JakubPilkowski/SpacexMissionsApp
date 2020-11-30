@@ -1,5 +1,5 @@
-import { FlexWrapperColumnCenter } from "../../utils/Wrappers.css";
-import { Button, IconButton } from "@material-ui/core";
+import { FlexWrapperColumnCenter } from "../../themes/Wrappers.css";
+import { Button } from "@material-ui/core";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
 const EndListView = (props) => {

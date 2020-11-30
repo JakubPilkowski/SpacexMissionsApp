@@ -1,10 +1,10 @@
 import { Fragment } from "react";
-import { CenteredH1 } from "utils/Texts.css";
+import { CenteredH1 } from "themes/Texts.css";
 import {
   FlexWrapperRowBetween,
   FlexContainer,
   FlexTextCenterContainer,
-} from "../../../utils/Wrappers.css";
+} from "../../../themes/Wrappers.css";
 
 const MissionInfo = ({
   launch: {

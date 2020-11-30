@@ -1,8 +1,8 @@
 import { Button } from "@material-ui/core";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { FlexWrapperRowCenter } from "utils/Wrappers.css";
-import { CenteredH1, Title } from "../../../utils/Texts.css";
+import { FlexWrapperRowCenter } from "themes/Wrappers.css";
+import { CenteredH1, Title } from "../../../themes/Texts.css";
 
 const PageNotFound = () => (
   <Fragment>

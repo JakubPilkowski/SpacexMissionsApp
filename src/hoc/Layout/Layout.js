@@ -9,18 +9,12 @@ import { useEffect, useState } from "react";
 import Footer from "components/UI/Footer/Footer";
 
 const Layout = (props) => {
-  const [currentScrollHeight, setCurrentScrollHeight] = useState(0);
+  const [opacity, setOpacity] = useState(0);
 
   useEffect(() => {
-    window.onscroll = () => {
-      const newScrollHeight = Math.ceil(window.scrollY / 50) * 50;
-      if (currentScrollHeight !== newScrollHeight && newScrollHeight <= 600) {
-        setCurrentScrollHeight(newScrollHeight);
-      }
-    };
+    window.onscroll = () =>
+      window.scrollY >= 400 ? setOpacity(1) : setOpacity(0);
   });
-
-  let opacity = currentScrollHeight / 600 > 1 ? 1 : currentScrollHeight / 600;
 
   return (
     <LayoutBackgroundImage>
