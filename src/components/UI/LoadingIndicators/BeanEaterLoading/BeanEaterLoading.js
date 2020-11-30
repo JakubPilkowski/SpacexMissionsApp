@@ -1,7 +1,7 @@
 import classes from "./BeanEaterLoading.module.css";
 
 const BeanEaterLoading = () => (
-  <div className={classes.LoadingMainWrapper}>
+  <div>
     <div className={classes.LoadingWrapper}>
       <div className={classes.LoadingContent}>
         <div>

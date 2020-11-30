@@ -12,24 +12,24 @@ const Layout = (props) => {
 
   useEffect(() => {
     window.onscroll = () => {
-      const newScrollHeight = Math.ceil(window.scrollY / 30) * 30;
-      if (currentScrollHeight != newScrollHeight) {
+      const newScrollHeight = Math.ceil(window.scrollY / 50) * 50;
+      if (currentScrollHeight !== newScrollHeight && newScrollHeight <= 600) {
         setCurrentScrollHeight(newScrollHeight);
       }
     };
   });
 
-  let opacity = currentScrollHeight / 800 > 1 ? 1 : currentScrollHeight / 500;
+  let opacity = currentScrollHeight / 600 > 1 ? 1 : currentScrollHeight / 600;
 
   return (
-    <LayoutWrapper>
-      <LayoutBackgroundImage>
+    <LayoutBackgroundImage>
+      <LayoutWrapper>
         <Router>
           <Navigation opacity={opacity} />
           <ContentWrapper>{props.children}</ContentWrapper>
         </Router>
-      </LayoutBackgroundImage>
-    </LayoutWrapper>
+      </LayoutWrapper>
+    </LayoutBackgroundImage>
   );
 };
 
