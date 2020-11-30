@@ -1,6 +1,4 @@
 import { FlexWrapperColumnCenter } from "../../utils/Wrappers.css";
-import { CenteredH2, Title } from "../../utils/Texts.css";
-import sad_face from "../../assets/sad_face.svg";
 import { Button, IconButton } from "@material-ui/core";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import SentimentVeryDissatisfiedIcon from "@material-ui/icons/SentimentVeryDissatisfied";
