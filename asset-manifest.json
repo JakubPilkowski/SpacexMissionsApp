@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/SpacexMissionsApp/static/css/main.ff2e8a80.chunk.css",
+    "main.js": "/SpacexMissionsApp/static/js/main.34e1cef7.chunk.js",
+    "main.js.map": "/SpacexMissionsApp/static/js/main.34e1cef7.chunk.js.map",
+    "runtime-main.js": "/SpacexMissionsApp/static/js/runtime-main.2318a767.js",
+    "runtime-main.js.map": "/SpacexMissionsApp/static/js/runtime-main.2318a767.js.map",
+    "static/css/2.55d8add8.chunk.css": "/SpacexMissionsApp/static/css/2.55d8add8.chunk.css",
+    "static/js/2.569f4c8c.chunk.js": "/SpacexMissionsApp/static/js/2.569f4c8c.chunk.js",
+    "static/js/2.569f4c8c.chunk.js.map": "/SpacexMissionsApp/static/js/2.569f4c8c.chunk.js.map",
+    "static/js/3.1c2c45af.chunk.js": "/SpacexMissionsApp/static/js/3.1c2c45af.chunk.js",
+    "static/js/3.1c2c45af.chunk.js.map": "/SpacexMissionsApp/static/js/3.1c2c45af.chunk.js.map",
+    "index.html": "/SpacexMissionsApp/index.html",
+    "static/css/2.55d8add8.chunk.css.map": "/SpacexMissionsApp/static/css/2.55d8add8.chunk.css.map",
+    "static/css/main.ff2e8a80.chunk.css.map": "/SpacexMissionsApp/static/css/main.ff2e8a80.chunk.css.map",
+    "static/js/2.569f4c8c.chunk.js.LICENSE.txt": "/SpacexMissionsApp/static/js/2.569f4c8c.chunk.js.LICENSE.txt",
+    "static/media/background.289a486e.svg": "/SpacexMissionsApp/static/media/background.289a486e.svg",
+    "static/media/github.711608bd.svg": "/SpacexMissionsApp/static/media/github.711608bd.svg",
+    "static/media/linkedin.bbbc8086.svg": "/SpacexMissionsApp/static/media/linkedin.bbbc8086.svg",
+    "static/media/reddit-logo.ff5d737f.svg": "/SpacexMissionsApp/static/media/reddit-logo.ff5d737f.svg",
+    "static/media/rocket.88c7d7d6.svg": "/SpacexMissionsApp/static/media/rocket.88c7d7d6.svg",
+    "static/media/rocket_height.ba6ab906.svg": "/SpacexMissionsApp/static/media/rocket_height.ba6ab906.svg",
+    "static/media/wave_true.415ee751.svg": "/SpacexMissionsApp/static/media/wave_true.415ee751.svg",
+    "static/media/weight.983d62ff.svg": "/SpacexMissionsApp/static/media/weight.983d62ff.svg",
+    "static/media/wikipedia.1c2fe7bb.png": "/SpacexMissionsApp/static/media/wikipedia.1c2fe7bb.png",
+    "static/media/youtube.5213846a.svg": "/SpacexMissionsApp/static/media/youtube.5213846a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2318a767.js",
+    "static/css/2.55d8add8.chunk.css",
+    "static/js/2.569f4c8c.chunk.js",
+    "static/css/main.ff2e8a80.chunk.css",
+    "static/js/main.34e1cef7.chunk.js"
+  ]
+}
