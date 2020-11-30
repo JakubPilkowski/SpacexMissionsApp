@@ -1,14 +1,12 @@
 import { Fragment } from "react";
 import {
-  FlexWrapperColumnCenter,
-  FlexWrapperRowSpace,
   FlexWrapperRowCenter,
   FlexWrapperRowBetween,
-} from "utils/Wrappers.css";
+} from "themes/Wrappers.css";
 import { FooterContent, FooterWave, FooterWrapper } from "./Footer.css";
 import linkedin_logo from "../../../assets/linkedin.svg";
 import github_logo from "../../../assets/github.svg";
-import { StyledA } from "utils/Texts.css";
+import { StyledA } from "themes/Texts.css";
 import GraphicsTribute from "./GraphiceTribute/GraphicsTribute";
 
 const Footer = () => (
@@ -27,14 +25,14 @@ const Footer = () => (
               target="_blank"
               rel="noreferrer"
             >
-              <img src={github_logo} height="50" />
+              <img src={github_logo} height="40" />
             </StyledA>
             <StyledA
               href="https://www.linkedin.com/in/jakub-piłkowski-4a14341b8/"
               target="_blank"
               rel="noreferrer"
             >
-              <img src={linkedin_logo} height="50" />
+              <img src={linkedin_logo} height="40" />
             </StyledA>
           </FlexWrapperRowCenter>
         </FlexWrapperRowBetween>

@@ -1,5 +1,5 @@
-import { CenteredSpacingSmH1, CenteredSpacingSmH2 } from "utils/Texts.css";
-import { FlexContainer } from "../../../utils/Wrappers.css";
+import { CenteredSpacingSmH1, CenteredSpacingSmH2 } from "themes/Texts.css";
+import { FlexContainer } from "../../../themes/Wrappers.css";
 import { ErrorWrapper } from "./Error.css";
 
 const Error = ({ response: { status, statusText, url } }) => (

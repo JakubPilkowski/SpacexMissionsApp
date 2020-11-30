@@ -1,5 +1,13 @@
 export { default as Navigation } from "./UI/Navigation";
-export { default as Mission } from "./Mission";
 export { default as Slider } from "./UI/Slider";
 export { default as SliderItem } from "./UI/Slider/SliderItem";
-export { default as Details } from "./Details";
+export { default as EndListView } from "./EndListView";
+export { default as Footer } from "./UI/Footer";
+export { default as BeanEaterLoading } from "./UI/LoadingIndicators/BeanEaterLoading";
+export { default as DotLoading } from "./UI/LoadingIndicators/DotLoading";
+export { default as Error } from "./UI/Error";
+export { default as PageNotFound } from "./UI/PageNotFound";
+export { default as AdditionalInfo } from "./Details/AdditionalInfo";
+export { default as AddToFavourites } from "./Details/AddToFavourites";
+export { default as RocketInfo } from "./Details/RocketInfo";
+export { default as MissionInfo } from "./Details/MissionInfo";

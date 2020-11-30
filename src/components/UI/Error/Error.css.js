@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FlexWrapperColumnCenter } from "utils/Wrappers.css";
+import { FlexWrapperColumnCenter } from "themes/Wrappers.css";
 
 export const ErrorWrapper = styled(FlexWrapperColumnCenter)`
   color: red;
