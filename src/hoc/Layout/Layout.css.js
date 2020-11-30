@@ -3,7 +3,7 @@ import background from "../../assets/background.svg";
 
 export const LayoutWrapper = styled.div`
   min-height: 100vh;
-  background: linear-gradient(rgba(15, 25, 59, 1), rgba(32, 44, 84, 1));
+  background: linear-gradient(rgba(15, 25, 59, 0.85), rgba(32, 44, 84, 0.85));
   background-attachment: fixed;
 `;
 

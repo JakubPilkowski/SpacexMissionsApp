@@ -3,11 +3,15 @@ import { Mission, Details } from "../../../components";
 import { GET_LAUNCHES } from "../../../api/Responses/MissionQueries/missionQueries";
 import { useQuery } from "@apollo/client";
 import InfiniteScroll from "react-infinite-scroller";
-import { FlexWrapperRowCenter } from "utils/Wrappers.css";
+import {
+  FlexWrapperColumnCenter,
+  FlexWrapperRowCenter,
+} from "utils/Wrappers.css";
 import BeanEaterLoading from "components/UI/LoadingIndicators/BeanEaterLoading/BeanEaterLoading";
 import DotLoading from "components/UI/LoadingIndicators/DotLoading/DotLoading";
 import Error from "components/UI/Error/Error";
 import { Title } from "utils/Texts.css";
+import EndListView from "components/EndListView/EndListView";
 
 const Missions = ({ favourites }) => {
   const [hasMore, setHasMore] = useState(true);
@@ -18,11 +22,19 @@ const Missions = ({ favourites }) => {
     },
   });
 
+  const onBackToTopHandler = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   if (loading)
     return (
-      <FlexWrapperRowCenter>
+      <FlexWrapperColumnCenter
+        style={{
+          marginTop: "100px",
+        }}
+      >
         <BeanEaterLoading />
-      </FlexWrapperRowCenter>
+      </FlexWrapperColumnCenter>
     );
 
   if (error) {
@@ -65,7 +77,7 @@ const Missions = ({ favourites }) => {
         }
       >
         {content}
-        {!hasMore ? <p>Nie ma więcej wyników</p> : null}
+        {!hasMore ? <EndListView onBackToTop={onBackToTopHandler} /> : null}
       </InfiniteScroll>
     </Fragment>
   );
