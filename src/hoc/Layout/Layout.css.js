@@ -17,5 +17,6 @@ export const LayoutBackgroundImage = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
+  min-height: 100vh;
   padding-top: 80px;
 `;
