@@ -12,6 +12,7 @@ import DotLoading from "components/UI/LoadingIndicators/DotLoading/DotLoading";
 import Error from "components/UI/Error/Error";
 import { Title } from "themes/Texts.css";
 import EndListView from "components/EndListView/EndListView";
+import PropTypes from "prop-types";
 
 const Missions = ({ favourites }) => {
   const [hasMore, setHasMore] = useState(true);
@@ -81,6 +82,17 @@ const Missions = ({ favourites }) => {
       </InfiniteScroll>
     </Fragment>
   );
+};
+
+Missions.propTypes = {
+  favourites: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string,
+      details: PropTypes.string,
+      image: PropTypes.string,
+    })
+  ),
 };
 
 export default Missions;

@@ -16,6 +16,8 @@ import {
   PhotosWrapper,
 } from "./AdditionalInfo.css";
 
+import PropTypes from "prop-types";
+
 const AdditionalInfo = ({
   links: { video, article, wikipedia, reddit, presskit, launch_images },
 }) => {
@@ -73,6 +75,17 @@ const AdditionalInfo = ({
       </FlexWrapperRowSpace>
     </Fragment>
   );
+};
+
+AdditionalInfo.propTypes = {
+  links: PropTypes.shape({
+    video: PropTypes.string,
+    article: PropTypes.string,
+    wikipedia: PropTypes.string,
+    reddit: PropTypes.string,
+    presskit: PropTypes.string,
+    launch_images: PropTypes.arrayOf(PropTypes.string),
+  }),
 };
 
 export default AdditionalInfo;

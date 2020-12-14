@@ -1,6 +1,7 @@
 import { SliderButton } from "components/UI/Slider/Slider.css";
 import { Fragment } from "react";
 import { FlexWrapperColumnCenter } from "../../../themes/Wrappers.css";
+import PropTypes from "prop-types";
 
 const AddToFavourites = ({ click }) => {
   return (
@@ -18,6 +19,10 @@ const AddToFavourites = ({ click }) => {
       </FlexWrapperColumnCenter>
     </Fragment>
   );
+};
+
+AddToFavourites.propTypes = {
+  click: PropTypes.func.isRequired,
 };
 
 export default AddToFavourites;

@@ -1,7 +1,13 @@
 import { Fragment } from "react";
 
-const SliderItem = (props) => {
-  return <Fragment>{props.children}</Fragment>;
+import PropTypes from "prop-types";
+
+const SliderItem = ({ children }) => {
+  return <Fragment>{children}</Fragment>;
+};
+
+SliderItem.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default SliderItem;
