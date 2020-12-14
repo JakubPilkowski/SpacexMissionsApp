@@ -8,6 +8,7 @@ import theme from "./themes/theme";
 import PageNotFound from "components/UI/PageNotFound/PageNotFound";
 import { connect } from "react-redux";
 import FavouritesContext from "./context/favourites-context";
+import { PREFIX } from "./utils/WebsiteLinkPrefix";
 
 function App({ favourites, addFavourite, removeFavourite }) {
   const addToFavourites = (favourite) => {
@@ -28,17 +29,17 @@ function App({ favourites, addFavourite, removeFavourite }) {
         >
           <Switch>
             <Route
-              path="/"
+              path={PREFIX}
               exact
               component={() => <Missions favourites={favourites} />}
             ></Route>
             <Route
-              path="/favourites"
+              path={`${PREFIX}/favourites`}
               component={() => <Favourites favourites={favourites} />}
             ></Route>
-            <Route path="/pagenotfound" component={PageNotFound}></Route>
-            <Route path="/" component={PageNotFound}>
-              <Redirect to="/pagenotfound" />
+            <Route path="/" component={PageNotFound}></Route>
+            <Route path={PREFIX} component={PageNotFound}>
+              <Redirect to={`${PREFIX}/pagenotfound`} />
             </Route>
           </Switch>
         </FavouritesContext.Provider>

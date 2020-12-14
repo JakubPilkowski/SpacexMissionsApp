@@ -14,7 +14,7 @@ import {
 import linkedin_logo from "../../../assets/linkedin.svg";
 import github_logo from "../../../assets/github.svg";
 import { StyledA } from "themes/Texts.css";
-import GraphicsTribute from "./GraphiceTribute/GraphicsTribute";
+import GraphicsTribute from "./GraphicsTribute/GraphicsTribute";
 
 const Footer = () => (
   <Fragment>

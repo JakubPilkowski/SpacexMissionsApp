@@ -2,13 +2,10 @@ import { Fragment } from "react";
 import { CenteredH1 } from "themes/Texts.css";
 import {
   FlexWrapperColumnCenter,
-  FlexWrapperRowBetween,
   FlexWrapperRowCenter,
 } from "../../../themes/Wrappers.css";
 import {
   RocketInfoContainer,
-  RocketHeightContainer,
-  RocketWeightContainer,
   RocketWeightImageContainer,
   RocketWeightImageDesc,
   RocketInfoWrapper,
@@ -17,6 +14,7 @@ import {
 } from "./RocketInfo.css";
 import rocketHeight from "../../../assets/rocket_height.svg";
 import weight from "../../../assets/weight.svg";
+import PropTypes from "prop-types";
 
 const RocketInfo = ({
   details: {
@@ -57,6 +55,19 @@ const RocketInfo = ({
       </RocketInfoWrapper>
     </Fragment>
   );
+};
+
+RocketInfo.propTypes = {
+  details: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    height: PropTypes.shape({
+      meters: PropTypes.number,
+    }),
+    mass: PropTypes.shape({
+      kg: PropTypes.number,
+    }),
+  }),
 };
 
 export default RocketInfo;

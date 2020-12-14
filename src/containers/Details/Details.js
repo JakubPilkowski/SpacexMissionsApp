@@ -15,6 +15,7 @@ import {
 } from "../../components";
 
 import FavouritesContext from "../../context/favourites-context";
+import PropTypes from "prop-types";
 
 const Details = ({ id, isFavourite, onClose }) => {
   const { error, loading, data } = useQuery(GET_LAUNCH_DETAILS, {
@@ -73,6 +74,12 @@ const Details = ({ id, isFavourite, onClose }) => {
   }
 
   return <Fragment>{content}</Fragment>;
+};
+
+Details.propTypes = {
+  id: PropTypes.string.isRequired,
+  isFavourite: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default Details;

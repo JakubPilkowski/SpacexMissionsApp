@@ -8,6 +8,8 @@ import {
   TitleName,
 } from "./MissionInfo.css";
 
+import PropTypes from "prop-types";
+
 const MissionInfo = ({
   launch: {
     details,
@@ -31,6 +33,17 @@ const MissionInfo = ({
       </MissionInfoWrapper>
     </Fragment>
   );
+};
+
+MissionInfo.propTypes = {
+  launch: PropTypes.shape({
+    details: PropTypes.string,
+    name: PropTypes.string,
+    launch_date_local: PropTypes.string,
+    links: PropTypes.shape({
+      image: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default MissionInfo;
