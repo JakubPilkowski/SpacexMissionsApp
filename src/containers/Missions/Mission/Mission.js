@@ -4,21 +4,19 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import {
   MissionCard,
-  MissionCardInFavourites,
   MissionCardTitle,
-  MissionCardHeader,
+  MissionCardContent,
   MissionCardImage,
 } from "./Mission.css";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import { FlexContainer, FlexWrapperColumnCenter } from "themes/Wrappers.css";
-import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { CardActions } from "@material-ui/core";
 import Details from "../../Details";
 import FavouritesContext from "../../../context/favourites-context";
 
 import PropTypes from "prop-types";
+import MissionCardHeader from "./MissionCardHeader/MissionCardHeader";
 
 const Mission = ({ id, name, details, image, isFavourite, mode }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +26,9 @@ const Mission = ({ id, name, details, image, isFavourite, mode }) => {
   };
   const onMissionCloseHandler = () => {
     setIsOpen(false);
+  };
+  const onRemoveFavouriteHandler = (context) => {
+    context.remove(id);
   };
 
   let detailsView = details
@@ -57,31 +58,23 @@ const Mission = ({ id, name, details, image, isFavourite, mode }) => {
       >
         <FlexContainer>
           <FavouritesContext.Consumer>
-            {/* utworzyć component header */}
             {(context) => (
               <CardActions>
-                {mode === "default" ? (
-                  <MissionCardInFavourites isFavourite={isFavourite}>
-                    {isFavourite ? "In favourites" : "Not in favourites"}
-                  </MissionCardInFavourites>
-                ) : (
-                  <IconButton
-                    aria-label="delete"
-                    color="primary"
-                    onClick={() => context.remove(id)}
-                  >
-                    <DeleteIcon fontSize="large" />
-                  </IconButton>
-                )}
+                <MissionCardHeader
+                  mode={mode}
+                  isFavourite={isFavourite}
+                  context={context}
+                  onRemove={onRemoveFavouriteHandler}
+                />
               </CardActions>
             )}
           </FavouritesContext.Consumer>
           <CardActionArea onClick={onMissionClickHandler}>
             <CardContent>
-              <MissionCardHeader>
+              <MissionCardContent>
                 <MissionCardTitle>{name}</MissionCardTitle>
                 <MissionCardImage src={image} alt={`${name} mission`} />
-              </MissionCardHeader>
+              </MissionCardContent>
               <Typography paragraph>{detailsView}</Typography>
             </CardContent>
           </CardActionArea>

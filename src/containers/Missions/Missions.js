@@ -27,6 +27,12 @@ const Missions = ({ favourites }) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const hasMoreCheckHandler = (launches) => {
+    if (launches.length === 0) {
+      setHasMore(false);
+    }
+  };
+
   if (loading)
     return (
       <FlexWrapperColumnCenter
@@ -63,11 +69,7 @@ const Missions = ({ favourites }) => {
             variables: {
               offset: data.launches.length,
             },
-          }).then(({ data: { launches } }) => {
-            if (launches.length === 0) {
-              setHasMore(false);
-            }
-          });
+          }).then(({ data: { launches } }) => hasMoreCheckHandler(launches));
         }}
         threshold={50}
         hasMore={hasMore}

@@ -24,6 +24,7 @@ const Details = ({ id, isFavourite, onClose }) => {
     },
   });
   let content;
+  let favouritesSlider;
 
   const addToFavourites = ({ name, details, links: { image } }, context) => {
     const favourite = {
@@ -47,26 +48,35 @@ const Details = ({ id, isFavourite, onClose }) => {
   if (!error && !loading) {
     const launch = data.launch;
 
+    if (!isFavourite) {
+      favouritesSlider = (
+        <SliderItem key={4}>
+          <AddToFavourites click={() => addToFavourites(launch, context)} />
+        </SliderItem>
+      );
+    }
+    // {!isFavourite ? (
+    //   <SliderItem key={4}>
+    //     <AddToFavourites
+    //       click={() => addToFavourites(launch, context)}
+    //     />
+    //   </SliderItem>
+    // ) : null}
+
     content = (
       <FavouritesContext.Consumer>
         {(context) => (
           <Slider length={!isFavourite ? 4 : 3}>
-            <SliderItem>
+            <SliderItem key={1}>
               <MissionInfo launch={launch} />
             </SliderItem>
-            <SliderItem>
+            <SliderItem key={2}>
               <RocketInfo details={launch.rocket.details} />
             </SliderItem>
-            <SliderItem>
+            <SliderItem key={3}>
               <AdditionalInfo links={launch.links} />
             </SliderItem>
-            {!isFavourite ? (
-              <SliderItem>
-                <AddToFavourites
-                  click={() => addToFavourites(launch, context)}
-                />
-              </SliderItem>
-            ) : null}
+            {favouritesSlider}
           </Slider>
         )}
       </FavouritesContext.Consumer>

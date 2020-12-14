@@ -1,52 +1,24 @@
 import { Fragment } from "react";
-import { CenteredH1, CenteredH2, StyledA } from "themes/Texts.css";
-import youtube from "../../../assets/youtube.svg";
-import wikipediaIcon from "../../../assets/wikipedia.png";
-import redditIcon from "../../../assets/reddit-logo.svg";
+import { CenteredH1, CenteredH2 } from "themes/Texts.css";
 import {
-  FlexContainer,
   FlexWrapperRowSpace,
   FlexWrapperColumnCenter,
 } from "../../../themes/Wrappers.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import {
-  LinkImage,
-  LinkImagesContainer,
-  PhotosWrapper,
-} from "./AdditionalInfo.css";
+import { PhotosWrapper } from "./AdditionalInfo.css";
 
 import PropTypes from "prop-types";
+import AdditionalInfoLinks from "./AdditionalInfoLinks/AdditionalInfoLinks";
 
-const AdditionalInfo = ({
-  links: { video, article, wikipedia, reddit, presskit, launch_images },
-}) => {
+const AdditionalInfo = ({ links: { launch_images, ...infoLinks } }) => {
   return (
     <Fragment>
       <CenteredH1>Additional info</CenteredH1>
       <FlexWrapperRowSpace>
         <FlexWrapperColumnCenter>
           <CenteredH2>Sources</CenteredH2>
-          <LinkImagesContainer>
-            <StyledA href={wikipedia} target="_blank" rel="noreferrer">
-              <LinkImage src={wikipediaIcon} alt="Wikipedia" />
-            </StyledA>
-            <StyledA href={video} target="_blank" rel="noreferrer">
-              <LinkImage src={youtube} alt="Youtube" />
-            </StyledA>
-            <StyledA href={reddit} target="_blank" rel="noreferrer">
-              <LinkImage src={redditIcon} alt="Icon" />
-            </StyledA>
-          </LinkImagesContainer>
-          <h4 style={{ margin: "6px" }}>Other links</h4>
-          <FlexContainer>
-            <StyledA href={article} target="_blank" rel="noreferrer">
-              Article
-            </StyledA>
-            <StyledA href={presskit} target="_blank" rel="noreferrer">
-              Press Kit
-            </StyledA>
-          </FlexContainer>
+          <AdditionalInfoLinks {...infoLinks} />
         </FlexWrapperColumnCenter>
         <PhotosWrapper>
           <CenteredH2>Photos</CenteredH2>
@@ -79,11 +51,6 @@ const AdditionalInfo = ({
 
 AdditionalInfo.propTypes = {
   links: PropTypes.shape({
-    video: PropTypes.string,
-    article: PropTypes.string,
-    wikipedia: PropTypes.string,
-    reddit: PropTypes.string,
-    presskit: PropTypes.string,
     launch_images: PropTypes.arrayOf(PropTypes.string),
   }),
 };
