@@ -42,11 +42,14 @@ const Slider = ({ length, children }) => {
 
   return (
     <SliderWrapper>
-      {children.map((child, index) => (
-        <Slide key={index} activeIndex={activeIndex} index={index}>
-          {child}
-        </Slide>
-      ))}
+      {children.map((child, index) => {
+        if (child != null && child.type.name === "SliderItem")
+          return (
+            <Slide key={child.key} activeIndex={activeIndex} index={index}>
+              {child}
+            </Slide>
+          );
+      })}
       <SliderBottomView>
         <SliderButton color="primary" onClick={goToPrevSlide}>
           Prev

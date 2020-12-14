@@ -17,7 +17,7 @@ export const MissionCard = styled(Card)`
   }
 `;
 
-export const MissionCardHeader = styled(FlexWrapperRowBetween)`
+export const MissionCardContent = styled(FlexWrapperRowBetween)`
   @media (max-width: 500px) {
     flex-direction: column;
   }
@@ -35,16 +35,5 @@ export const MissionCardImage = styled.img`
 export const MissionCardTitle = styled.h1`
   @media (max-width: 500) {
     order: 2;
-  }
-`;
-
-export const MissionCardInFavourites = styled.h4`
-  margin: 0px;
-  border-radius: 6px;
-  background-color: ${(props) => (props.isFavourite ? "#ff8c00" : "red")};
-  padding: 6px;
-
-  @media (max-width: 500px) {
-    margin: auto;
   }
 `;
