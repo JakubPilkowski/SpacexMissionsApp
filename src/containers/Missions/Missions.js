@@ -3,16 +3,12 @@ import Mission from "./Mission";
 import { GET_LAUNCHES } from "../../api/Responses/MissionQueries/missionQueries";
 import { useQuery } from "@apollo/client";
 import InfiniteScroll from "react-infinite-scroller";
-import {
-  FlexWrapperColumnCenter,
-  FlexWrapperRowCenter,
-} from "themes/Wrappers.css";
 import BeanEaterLoading from "components/UI/LoadingIndicators/BeanEaterLoading/BeanEaterLoading";
 import DotLoading from "components/UI/LoadingIndicators/DotLoading/DotLoading";
 import Error from "components/UI/Error/Error";
-import { Title } from "themes/Texts.css";
 import EndListView from "components/EndListView/EndListView";
 import PropTypes from "prop-types";
+import "../../sass/pages/missions.scss";
 
 const Missions = ({ favourites }) => {
   const [hasMore, setHasMore] = useState(true);
@@ -35,13 +31,14 @@ const Missions = ({ favourites }) => {
 
   if (loading)
     return (
-      <FlexWrapperColumnCenter
+      <div
+        className="flex-wrapper-column-center"
         style={{
           marginTop: "100px",
         }}
       >
         <BeanEaterLoading />
-      </FlexWrapperColumnCenter>
+      </div>
     );
 
   if (error) {
@@ -61,7 +58,7 @@ const Missions = ({ favourites }) => {
   ));
   return (
     <Fragment>
-      <Title>Missions List</Title>
+      <h1 className="title">Missions List</h1>
       <InfiniteScroll
         pageStart={0}
         loadMore={() => {
@@ -74,9 +71,9 @@ const Missions = ({ favourites }) => {
         threshold={50}
         hasMore={hasMore}
         loader={
-          <FlexWrapperRowCenter>
+          <div className="flex-wrapper-row">
             <DotLoading />
-          </FlexWrapperRowCenter>
+          </div>
         }
       >
         {content}

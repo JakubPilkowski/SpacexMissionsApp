@@ -1,0 +1,46 @@
+@use "../abstracts/variables" as var;
+
+.flex-wrapper-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex-wrapper-row-center {
+    @extend .flex-wrapper-row;
+    justify-content: center;
+}
+
+.flex-wrapper-row-between {
+    @extend .flex-wrapper-row;
+    justify-content: space-between;
+}
+
+.flex-wrapper-row-around {
+    @extend .flex-wrapper-row;
+    justify-content: space-around;
+}
+
+.flex-wrapper-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-wrapper-column-center {
+    @extend .flex-wrapper-column;
+    align-items: center;
+}
+
+.flex-container {
+    margin: var.$margin-medium;
+    padding: var.$padding-medium;
+
+    @media (max-width) {
+        margin: var.$margin-small;
+        padding: var.$padding-small;
+    }
+}
+
+.flex-container-text-aligned {
+    @extend .flex-container;
+    text-align: center;
+}

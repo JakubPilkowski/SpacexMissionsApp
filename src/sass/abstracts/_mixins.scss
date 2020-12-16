@@ -1,0 +1,25 @@
+@mixin on-event($self: false) {
+    @if $self {
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        @content;
+      }
+    } @else {
+      &:hover,
+      &:active,
+      &:focus {
+        @content;
+      }
+    }
+}
+
+@mixin alignedTags($align: center, $tags)
+{
+    @each $tag in $tags {
+        .#{$tag}-align-#{$align} {
+            text-align: $align;
+        }
+    }
+}

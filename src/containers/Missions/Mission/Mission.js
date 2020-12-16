@@ -14,7 +14,6 @@ import { FlexContainer, FlexWrapperColumnCenter } from "themes/Wrappers.css";
 import { CardActions } from "@material-ui/core";
 import Details from "../../Details";
 import FavouritesContext from "../../../context/favourites-context";
-
 import PropTypes from "prop-types";
 import MissionCardHeader from "./MissionCardHeader/MissionCardHeader";
 
@@ -38,7 +37,7 @@ const Mission = ({ id, name, details, image, isFavourite, mode }) => {
     : "Details empty";
 
   return (
-    <FlexWrapperColumnCenter>
+    <div className="flex-wrapper-column-center">
       <Dialog maxWidth={"lg"} open={isOpen} onClose={onMissionCloseHandler}>
         <MuiDialogContent>
           <Details
@@ -80,7 +79,7 @@ const Mission = ({ id, name, details, image, isFavourite, mode }) => {
           </CardActionArea>
         </FlexContainer>
       </MissionCard>
-    </FlexWrapperColumnCenter>
+    </div>
   );
 };
 

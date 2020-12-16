@@ -1,0 +1,36 @@
+@use "../base/global.scss";
+@use "../layout/grid";
+
+.mission-card {
+    margin-bottom: 24px;
+    width: 50%;
+    max-width: 50%;
+    &:hover {
+        transform: scale(1.02);
+        -webkit-transition: 500ms;
+    }
+}
+
+.mission-card-image {
+    height: 100px;
+}
+
+@media (max-width: $breakpoint) {
+    .mission-card{
+        width: 90%;
+        max-width: 90%;
+    }
+    .mission-card-content {
+        flex-direction: column;
+    }
+
+    .mission-card-image {
+        order: 1;
+        height: 75px;
+        margin-bottom: 12px;
+    }
+    
+    h1.mission-card-title {
+        order: 2;
+    }
+}

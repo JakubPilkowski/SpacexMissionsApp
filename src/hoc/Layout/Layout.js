@@ -1,25 +1,21 @@
-import {
-  ContentWrapper,
-  LayoutBackgroundImage,
-  LayoutWrapper,
-} from "./Layout.css";
 import { Navigation } from "../../components";
 import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "components/UI/Footer/Footer";
 import PropTypes from "prop-types";
 import { CenteredH1 } from "themes/Texts.css";
+import "../../sass/pages/layout.scss";
 
 const Layout = (props) => {
   return (
-    <LayoutBackgroundImage>
-      <LayoutWrapper>
+    <div className="layout-background-image">
+      <div className="layout-background">
         <Router>
           <Navigation />
-          <ContentWrapper>{props.children}</ContentWrapper>
+          <div className="layout-content">{props.children}</div>
           <Footer />
         </Router>
-      </LayoutWrapper>
-    </LayoutBackgroundImage>
+      </div>
+    </div>
   );
 };
 

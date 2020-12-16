@@ -1,0 +1,22 @@
+@use "../abstracts/variables" as var;
+
+h1.title {
+    text-align: center;
+    color: var.$color-text-primary;
+}
+
+.text-spacing-sm {
+    margin: var.$margin-small;
+}
+
+a.styled-link {
+    margin: 0 var.$margin-big;
+    color: blue;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:active {
+      color: var.$color-primary;
+    }
+}

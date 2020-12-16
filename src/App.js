@@ -1,4 +1,4 @@
-import "./App.css";
+import "sass/pages/app.scss";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Favourites, Missions } from "./containers";

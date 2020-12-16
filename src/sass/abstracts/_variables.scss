@@ -1,0 +1,27 @@
+$color-primary: #ff8c00 !default;
+$color-accent:  #353F62 !default;
+$color-secondary: #824B31 !default;
+$color-text-primary: white !default;
+
+$breakpoint: 500px !default;
+
+$interval: 3px !default;
+
+$margin-small: $interval;
+$margin-medium: $interval * 2;
+$margin-big: $interval * 4;
+
+$padding-small: $interval;
+$padding-medium: $interval * 2;
+$padding-big: $interval * 4;
+
+
+$border-interval: 1px !default; 
+
+$border-small: $border-interval;
+$border-medium: $border-interval * 2;
+$border-big: $border-interval * 4;
+
+$img-small: 75px !default;
+$img-medium: 100px !default;
+$img-big: 125px !default;
